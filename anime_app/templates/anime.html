@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ anime.name_ru }}{% endblock %}
+
+{% block content %}
+<main>
+  <section class="container my-5">
+    <div class="row">
+      <h1 class="text-center">{{ anime.name_ru }} / {{ anime.name_en }}</h1>
+      <div class="col-12 col-lg-7 my-5">
+        <p>{{ anime.description }}</p>
+        <p>
+          Ссылка на аниме: 
+          <a href="{{ anime.link }}" class="text-decoration-none text-info">{{ anime.link }}</a>
+        </p>
+        <p>
+          Рейтинг: {{ anime.rating }}
+        </p>
+      </div>
+      <div class="col-12 col-lg-5">
+        <img class="img-fluid mx-auto d-block" src="{{ url_for('static', filename='images/' ~ anime.img_link) }}" alt="{{ anime.name_ru }}">
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
